@@ -19,10 +19,12 @@ const int irSensor5=8;
 const int irSensor6=9;
 const int irSensor7=15;
 
+int val0,val1,val2,val3,val4,val5,val6,val7;
+
 void go();
 void stopme();
-void rightS();
 void leftS();
+void rightS();
 
 //Setup for line following robot
 void setup() {
@@ -53,17 +55,25 @@ void setup() {
 
 }
 
+void readSensor(){
+  val0=digitalRead(irSensor0);
+  val1=digitalRead(irSensor1);
+  val2=digitalRead(irSensor2);
+  val3=digitalRead(irSensor3);
+  val4=digitalRead(irSensor4);
+  val5=digitalRead(irSensor5);
+  val6=digitalRead(irSensor6);
+  val7=digitalRead(irSensor7);
+
+  
+}
+
+
 //loop for line following robot using if-else
 void loop() {
 
-int  val0=digitalRead(irSensor0);
-int  val1=digitalRead(irSensor1);
-int  val2=digitalRead(irSensor2);
-int  val3=digitalRead(irSensor3);
-int  val4=digitalRead(irSensor4);
-int  val5=digitalRead(irSensor5);
-int  val6=digitalRead(irSensor6);
-int  val7=digitalRead(irSensor7);
+  readSensor();
+  
 
   if(val0==val1==val2==val5==val6==val7==1 && val3==val4==0) {
     go();
@@ -79,44 +89,35 @@ int  val7=digitalRead(irSensor7);
   }
 
 }
-void rightS() 
-
-{
-     Serial.println("                         right turn");
-    
+void rightS(){
+     Serial.println("\tright turn");
      analogWrite(motorRPin1, 170);
      analogWrite(motorRPin2, 80);
-     
-     
+    
      analogWrite(motorLPin1, 80);
      analogWrite(motorLPin2, 170);
-  
 }
 
 
-void leftS()  //turn left
-{
-     Serial.println("                         left turn");
-     
+void leftS(){
+
+     Serial.println("\tleft turn");
+ 
      analogWrite(motorRPin1, 80);
      analogWrite(motorRPin2, 170);
-     
      
      analogWrite(motorLPin1, 170);
      analogWrite(motorLPin2, 80);
   
 }
 
-void go()
-{
-    Serial.println("                         forward ");
+void go(){
+  Serial.println("\tforward ");
+  analogWrite(motorRPin1, 255);
+  analogWrite(motorRPin2, 0);
      
-     analogWrite(motorRPin1, 255);
-     analogWrite(motorRPin2, 0);
-     
-     
-     analogWrite(motorLPin1, 255);
-     analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 255);
+  analogWrite(motorLPin2, 0);
   
 }
 
