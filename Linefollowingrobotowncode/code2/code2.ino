@@ -19,7 +19,6 @@ const int irSensor5=8;
 const int irSensor6=9;
 const int irSensor7=15;
 
-int val0,val1,val2,val3,val4,val5,val6,val7;
 
 void go();
 void stopme();
@@ -52,27 +51,22 @@ void setup() {
   pinMode(irSensor6, INPUT);
   pinMode(irSensor7, INPUT);
 
-
-}
-
-void readSensor(){
-  val0=digitalRead(irSensor0);
-  val1=digitalRead(irSensor1);
-  val2=digitalRead(irSensor2);
-  val3=digitalRead(irSensor3);
-  val4=digitalRead(irSensor4);
-  val5=digitalRead(irSensor5);
-  val6=digitalRead(irSensor6);
-  val7=digitalRead(irSensor7);
-
-  
 }
 
 
 //loop for line following robot using if-else
 void loop() {
 
-  readSensor();
+
+  int val0=digitalRead(irSensor0);
+  int val1=digitalRead(irSensor1);
+  int val2=digitalRead(irSensor2);
+  int val3=digitalRead(irSensor3);
+  int val4=digitalRead(irSensor4);
+  int val5=digitalRead(irSensor5);
+  int val6=digitalRead(irSensor6);
+  int val7=digitalRead(irSensor7);
+
   
 
   if(val0==val1==val2==val5==val6==val7==1 && val3==val4==0) {
