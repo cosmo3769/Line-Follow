@@ -30,6 +30,10 @@ void slightMoreLeft();
 void slightMoreRight();
 void slightlyMoreLeft();
 void slightlyMoreRight();
+void oneLeft();
+void oneMoreLeft();
+void oneRight();
+void oneMoreRight();
 
 //Setup for line following robot
 void setup() {
@@ -105,16 +109,27 @@ void loop() {
   else if((val6==0 || val7==0) && (val0==1 || val1==1 || val2==1 || val3==1 || val4==1 || val5==1)) {
     slightlyMoreRight();
   }
-
+  else if((val2==0) && (val0==1 || val1==1 || val3==1 || val4==1 || val5==1 || val6==1 || val7==1)) {
+    oneLeft();
+  }
+  else if((val5==0) && (val0==1 || val1==1 || val2==1 || val3==1 || val4==1 || val6==1 || val7==1)) {
+    oneRight();
+  }
+  else if((val1==0) && (val0==1 || val2==1 || val3==1 || val4==1 || val5==1 || val6==1 || val7==1)) {
+    oneMoreLeft();
+  }
+  else if((val6==0) && (val0==1 || val1==1 || val2==1 || val3==1 || val4==1 || val5==1 || val7==1)) {
+    oneMoreRight();
+  }
 }
 void extremeRight() {
   
   Serial.println("\tright turn");
   
-  analogWrite(motorRPin1, 255);
-  analogWrite(motorRPin2, 255);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 25);
     
-  analogWrite(motorLPin1, 25);
+  analogWrite(motorLPin1, 50);
   analogWrite(motorLPin2, 0);
 }
 
@@ -123,11 +138,11 @@ void extremeLeft() {
 
   Serial.println("\tleft turn");
  
-  analogWrite(motorRPin1, 25);
+  analogWrite(motorRPin1, 50);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 255);
-  analogWrite(motorLPin2, 255);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 25);
 }
 
 void slightRight() {
@@ -135,9 +150,9 @@ void slightRight() {
   Serial.println("\tslight right turn");
 
   analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 25);
+  analogWrite(motorRPin2, 50);
      
-  analogWrite(motorLPin1, 25);
+  analogWrite(motorLPin1, 50);
   analogWrite(motorLPin2, 0);
 }
 
@@ -145,11 +160,11 @@ void slightLeft() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 25);
+  analogWrite(motorRPin1, 50);
   analogWrite(motorRPin2, 0);
      
   analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 25);
+  analogWrite(motorLPin2, 50);
 }
 
 void slightMoreRight() {
@@ -157,9 +172,9 @@ void slightMoreRight() {
   Serial.println("\tslight more right turn");
 
   analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 25);
+  analogWrite(motorRPin2, 50);
      
-  analogWrite(motorLPin1, 25);
+  analogWrite(motorLPin1, 50);
   analogWrite(motorLPin2, 0);
 }
 
@@ -167,11 +182,11 @@ void slightMoreLeft() {
 
   Serial.println("\tslight more left turn");
 
-  analogWrite(motorRPin1, 25);
+  analogWrite(motorRPin1, 50);
   analogWrite(motorRPin2, 0);
      
   analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 25);
+  analogWrite(motorLPin2, 50);
 }
 
 void slightlyMoreRight() {
@@ -179,9 +194,9 @@ void slightlyMoreRight() {
   Serial.println("\tslightly more right turn");
 
   analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 25);
+  analogWrite(motorRPin2, 50);
      
-  analogWrite(motorLPin1, 25);
+  analogWrite(motorLPin1, 50);
   analogWrite(motorLPin2, 0);
 }
 
@@ -189,21 +204,21 @@ void slightlyMoreLeft() {
 
   Serial.println("\tslightly more left turn");
 
-  analogWrite(motorRPin1, 25);
+  analogWrite(motorRPin1, 50);
   analogWrite(motorRPin2, 0);
      
   analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 25);
+  analogWrite(motorLPin2, 50);
 }
 
 void go() {
   
   Serial.println("\tforward ");
   
-  analogWrite(motorRPin1, 50);
+  analogWrite(motorRPin1, 75);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 50);
+  analogWrite(motorLPin1, 75);
   analogWrite(motorLPin2, 0);
 }
 
@@ -211,11 +226,11 @@ void stopme() {
   
   Serial.println("\tstop");
      
-  analogWrite(motorRPin1, 255);
-  analogWrite(motorRPin2, 255);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 0);
   
-  analogWrite(motorLPin1, 255);
-  analogWrite(motorLPin2, 255);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 0);
 }
 
 
