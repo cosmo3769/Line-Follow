@@ -34,6 +34,8 @@ void oneLeft();
 //void oneMoreLeft();
 void oneRight();
 //void oneMoreRight();
+void oneMoreLeft();
+void oneMoreRight();
 
 //Setup for line following robot
 void setup() {
@@ -79,10 +81,10 @@ void loop() {
 
   
 
-  if((val3==0 || val4==0) && (val2==1 || val5==1)) {
+  if(val3==0 && val4==0 && val2==1 && val5==1) {
     go();
   }
-  else if(val2==0 || val3==0 || val4==0 || val5==0) {
+  else if(val2==0 && val3==0 && val4==0 && val5==0) {
     stopme();
   }
   /*else if((val0==0 || val1==0 || val2==0 || val3==0 || val4==0) && (val5==1 || val6==1 || val7==1)) {
@@ -91,10 +93,10 @@ void loop() {
   else if((val3==0 || val4==0 || val5==0 || val6==0 || val7==0) && (val0==1 || val1==1 || val2==1)) {
     extremeRight(); 
   }*/
-  else if((val4==0 || val5==0) && (val2==1 || val3==1)) {
+  else if(val4==0 && val5==0 && val2==1 && val3==1) {
     slightLeft();
   }
-  else if((val2==0 || val3==0) && (val4==1 || val5==1)) {
+  else if(val2==0 && val3==0 && val4==1 && val5==1) {
     slightRight();
   }
   /*else if((val1==0 || val2==0) && (val0==1 || val3==1 || val4==1 || val5==1 || val6==1 || val7==1)) {
@@ -109,10 +111,10 @@ void loop() {
   else if((val6==0 || val7==0) && (val0==1 || val1==1 || val2==1 || val3==1 || val4==1 || val5==1)) {
     slightlyMoreRight();
   }*/
-  else if((val5==0) && (val2==1 || val3==1 || val4==1)) {
+  else if(val4==0 && val2==1 && val3==1 && val5==1) {
     oneLeft();
   }
-  else if((val2==0) && (val4==1 || val3==1 || val5==1)) {
+  else if(val3==0 && val2==1 && val4==1 && val5==1) {
     oneRight();
   }
   /*else if((val1==0) && (val0==1 || val2==1 || val3==1 || val4==1 || val5==1 || val6==1 || val7==1)) {
@@ -121,6 +123,12 @@ void loop() {
   else if((val6==0) && (val0==1 || val1==1 || val2==1 || val3==1 || val4==1 || val5==1 || val7==1)) {
     oneMoreRight();
   }*/
+  else if(val5==0 && val2==1 && val3==1 && val4==1) {
+    oneMoreLeft();
+  }
+  else if(val2==0 && val3==1 && val4==1 && val5==1) {
+    oneMoreRight();
+  }
 }
 /*void extremeRight() {
   
@@ -150,9 +158,9 @@ void slightRight() {
   Serial.println("\tslight right turn");
 
   analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 50);
+  analogWrite(motorRPin2, 70);
      
-  analogWrite(motorLPin1, 50);
+  analogWrite(motorLPin1, 70);
   analogWrite(motorLPin2, 0);
 }
 
@@ -160,21 +168,21 @@ void slightLeft() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 50);
+  analogWrite(motorRPin1, 70);
   analogWrite(motorRPin2, 0);
      
   analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 50);
+  analogWrite(motorLPin2, 70);
 }
 
 void oneLeft() {
   Serial.println("\tone left turn");
 
-  analogWrite(motorRPin1, 50);
+  analogWrite(motorRPin1, 70);
   analogWrite(motorRPin2, 0);
      
   analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 50);
+  analogWrite(motorLPin2, 70);
 }
 
 void oneRight() {
@@ -182,9 +190,9 @@ void oneRight() {
   Serial.println("\tone right turn");
 
   analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 50);
+  analogWrite(motorRPin2, 70);
      
-  analogWrite(motorLPin1, 50);
+  analogWrite(motorLPin1, 70);
   analogWrite(motorLPin2, 0);
 }
 
@@ -232,14 +240,35 @@ void slightlyMoreLeft() {
   analogWrite(motorLPin2, 50);
 }*/
 
+void oneMoreLeft() {
+  Serial.println("\tone More Left turn");
+
+  analogWrite(motorRPin1, 70);
+  analogWrite(motorRPin2, 0);
+     
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 70);
+}
+
+void oneMoreRight() {
+
+  Serial.println("\tone More Right turn");
+
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 70);
+     
+  analogWrite(motorLPin1, 70);
+  analogWrite(motorLPin2, 0);
+}
+
 void go() {
   
   Serial.println("\tforward ");
   
-  analogWrite(motorRPin1, 75);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 75);
+  analogWrite(motorLPin1, 90);
   analogWrite(motorLPin2, 0);
 }
 
