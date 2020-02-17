@@ -81,7 +81,7 @@ void loop() {
 
   
 
-  if((val3==lc) && (val4==lc) && (val2==sc) && (val5==sc)) {
+  if((val3==lc) && (val4==lc) && (val0==sc) && (val1==sc) && (val2==sc) && (val5==sc) && (val6==sc) && (val7==sc)) {
     go();
   }
   else if((val0==lc) && (val7==lc)) {
@@ -108,7 +108,7 @@ void loop() {
   else if((val1==lc) && (val2==lc) && (val0==sc) && (val3==sc)) {
     left_20();
   }
-  else if((val4==sc) && (val5==lc) && (val6==lc) && (val7==sc)) {
+  else if((val5==lc) && (val6==lc) && (val4==sc) && (val7==sc)) {
     right_20();
   }
   else if((val0==lc) && (val1==lc) && (val2==lc) && (val3==sc)) {
@@ -149,128 +149,130 @@ void left_05() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 110);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 130);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);                                                                   
 }
 
-void right_05() {
+void right_05() {                                                                                     
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 130);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 110);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 void left_10() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 100);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 140);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);  
 }
 
 void right_10() {
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 140);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 100);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
+
 void left_15() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 150);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);  
 }
 
 void right_15() {
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 150);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 90);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
+
 void left_20() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 80);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 160);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);  
 }
 
 void right_20() {
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 160);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 80);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
+
 void left_25() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 70);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 170);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);  
 }
 
 void right_25() {
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 170);
+  analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 70);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
-
 
 void extremeLeft() {
   Serial.println("\tleft turn");
  
-  analogWrite(motorRPin1, 120);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 120);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);  
 }
 
 void extremeRight() {
   Serial.println("\tright turn");
   
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 120);
-    
-  analogWrite(motorLPin1, 120);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
+     
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
   
