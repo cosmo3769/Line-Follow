@@ -1,5 +1,5 @@
-#define lc 0
-#define sc 1
+#define lc 0 //black
+#define sc 1 //white
 
 //Pins specified for right motor
 const int motorRPin1=3;
@@ -81,7 +81,7 @@ void loop() {
 
   
 
-  if((val2==sc) && (val3==lc) && (val4==lc) && (val5==sc)) {
+  if((val3==lc) && (val4==lc) && (val2==sc) && (val5==sc)) {
     go();
   }
   else if((val0==lc) && (val7==lc)) {
@@ -90,22 +90,22 @@ void loop() {
   else if((val2==lc) && (val3==lc) && (val4==lc) && (val5==sc)) {
     left_05();
   }
-  else if((val2==sc) && (val3==lc) && (val4==lc) && (val5==lc)) {
+  else if((val3==lc) && (val4==lc) && (val5==lc) && (val2==sc)) {
     right_05();
   }
-  else if((val1==sc) && (val2==lc) && (val3==lc) && (val4==sc)) {
+  else if((val2==lc) && (val3==lc) && (val1==sc) && (val4==sc)) {
     left_10();
   }
-  else if((val3==sc) && (val4==lc) && (val5==lc) && (val6==sc)) {
+  else if((val4==lc) && (val5==lc) && (val3==sc) && (val6==sc)) {
     right_10();
   }
   else if((val1==lc) && (val2==lc) && (val3==lc) && (val4==sc)) {
     left_15();
   }
-  else if((val3==sc) && (val4==lc) && (val5==lc) && (val6==lc)) {
+  else if((val4==lc) && (val5==lc) && (val6==lc) && (val3==sc)) {
     right_15();
   }
-  else if((val0==sc) && (val1==lc) && (val2==lc) && (val3==sc)) {
+  else if((val1==lc) && (val2==lc) && (val0==sc) && (val3==sc)) {
     left_20();
   }
   else if((val4==sc) && (val5==lc) && (val6==lc) && (val7==sc)) {
@@ -114,7 +114,7 @@ void loop() {
   else if((val0==lc) && (val1==lc) && (val2==lc) && (val3==sc)) {
     left_25();
   }
-  else if((val4==sc) && (val5==lc) && (val6==lc) && (val7==lc)) {
+  else if((val5==lc) && (val6==lc) && (val7==lc) && (val4==sc)) {
     right_25();
   }
   else if((val0==lc) && (val1==lc) && (val2==lc) && (val3==lc)) {
