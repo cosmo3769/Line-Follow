@@ -85,12 +85,6 @@ void loop() {
   else if(val0==0 && val1==0 && val2==0 && val3==0 && val4==0 && val5==0 && val6==0 && val7==0) {
     stopme();
   }
-  else if(val0==0 && val1==0 && val2==0 && val3==0 && val4==0 && val5==1 && val6==1 && val7==1) {
-    extremeLeft();
-  }
-  else if(val3==0 && val4==0 && val5==0 && val6==0 && val7==0 && val0==1 && val1==1 && val2==1) {
-    extremeRight(); 
-  }
   else if(val2==0 && val3==0 && val0==1 && val1==1 && val4==1 && val5==1 && val6==1 && val7==1) {
     slightLeft();
   }
@@ -120,6 +114,12 @@ void loop() {
   }
   else if(val6==0 && val0==1 && val1==1 && val2==1 && val3==1 && val4==1 && val5==1 && val7==1) {
     oneMoreRight();
+  }
+  else if(val0==0 && val1==0 && val2==0 && val3==0 && val4==0 && val5==1 && val6==1 && val7==1) {
+    extremeLeft();
+  }
+  else if(val3==0 && val4==0 && val5==0 && val6==0 && val7==0 && val0==1 && val1==1 && val2==1) {
+    extremeRight(); 
   }
 }
 void extremeRight() {
