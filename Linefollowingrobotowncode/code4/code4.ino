@@ -126,11 +126,11 @@ void extremeRight() {
   
   Serial.println("\tright turn");
   
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 70);
-    
-  analogWrite(motorLPin1, 70);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
+     
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 
@@ -138,105 +138,94 @@ void extremeLeft() {
 
   Serial.println("\tleft turn");
  
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 90);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);
 }
 
 void slightRight() {
 
   Serial.println("\tslight right turn");
 
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 90);
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 90);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 void slightLeft() {
 
   Serial.println("\tslight left turn");
 
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 90);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);
 }
 
 void slightMoreRight() {
 
   Serial.println("\tslight more right turn");
 
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 90);
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 90);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 void slightMoreLeft() {
 
   Serial.println("\tslight more left turn");
 
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 90);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);
 }
 
 void slightlyMoreRight() {
 
   Serial.println("\tslightly more right turn");
 
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 90);
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 90);
-  analogWrite(motorLPin2, 0);
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 void slightlyMoreLeft() {
 
   Serial.println("\tslightly more left turn");
 
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 90);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);
 }
 
 void oneLeft() {
 
   Serial.println("\tone left turn");
  
-  analogWrite(motorRPin1, 90);
-  analogWrite(motorRPin2, 0);
+  analogWrite(motorRPin1, 0);
+  analogWrite(motorRPin2, 90);
      
-  analogWrite(motorLPin1, 0);
-  analogWrite(motorLPin2, 90);
+  analogWrite(motorLPin1, 90);
+  analogWrite(motorLPin2, 0);
 }
 
 void oneRight() {
 
   Serial.println("\tone right turn");
 
-  analogWrite(motorRPin1, 0);
-  analogWrite(motorRPin2, 90);
-     
-  analogWrite(motorLPin1, 90);
-  analogWrite(motorLPin2, 0);
-}
-
-void oneMoreLeft() {
-
-  Serial.println("\tone more left turn");
- 
   analogWrite(motorRPin1, 90);
   analogWrite(motorRPin2, 0);
      
@@ -244,15 +233,26 @@ void oneMoreLeft() {
   analogWrite(motorLPin2, 90);
 }
 
-void oneMoreRight() {
+void oneMoreLeft() {
 
-  Serial.println("\tone more right turn");
-
+  Serial.println("\tone more left turn");
+ 
   analogWrite(motorRPin1, 0);
   analogWrite(motorRPin2, 90);
      
   analogWrite(motorLPin1, 90);
   analogWrite(motorLPin2, 0);
+}
+
+void oneMoreRight() {
+
+  Serial.println("\tone more right turn");
+
+  analogWrite(motorRPin1, 90);
+  analogWrite(motorRPin2, 0);
+     
+  analogWrite(motorLPin1, 0);
+  analogWrite(motorLPin2, 90);
 }
 
 void go() {
@@ -262,7 +262,7 @@ void go() {
   analogWrite(motorRPin1, 120);
   analogWrite(motorRPin2, 0);
      
-  analogWrite(motorLPin1, 12 0);
+  analogWrite(motorLPin1, 120);
   analogWrite(motorLPin2, 0);
 }
 
