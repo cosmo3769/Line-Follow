@@ -3,10 +3,10 @@
 
 /////////////motor pinout/////////////////
 
-#define lm1 3 
-#define lm2 5
-#define rm1 6
-#define rm2 9 
+#define lm1 10
+#define lm2 11
+#define rm1 3
+#define rm2 5 
 
 int s1,s2,s3,s4,s5,s6,s7,s8;
 
@@ -14,14 +14,14 @@ int s1,s2,s3,s4,s5,s6,s7,s8;
 
 float error = 0;
 float prev_error = 0;
-float Kp = 37.5;
-float Kd = 75;  //100/150 
+float Kp = 58;
+float Kd = 300;  //100/150   //40, 70
 float P = 0;
 float D = 0;
 float pd = 0;
 
-int lms,rms;
-int bs = 130;  
+int lms,rms; 
+int bs = 200;  
 
 int left_max = 200;
 int right_max = 202; //based on motor speed diff
@@ -43,28 +43,11 @@ int rightacutethres = 700;
 int brake_count = 0;
 int brake_thres = 400;
 
-/////////////block mania parameters/////////////
-
-int b;
-int len;
-int len_small;
-int len_big;
-int i=0;
-bool flag = false;
-
-double block_counter=0;
-double block_threshold = 2400;
-
 void setup() {
   pinMode(lm1, OUTPUT);
   pinMode(lm2, OUTPUT);
   pinMode(rm1, OUTPUT);
   pinMode(rm2, OUTPUT);
-  pinMode(4,OUTPUT);
-  digitalWrite(4,LOW);
-
-  left = 1000;
-  right = 1000;
 
 }
 
@@ -78,35 +61,6 @@ void loop() {
   if (s8==lc){
     right = 0;
   }
-
-   if (b==HIGH){
-    flag = true;
-    while(flag==true){
-      block_counter = block_counter + 1;
-      readsensors();
-      if(b==LOW){
-        flag= false; 
-        if(block_counter>block_threshold){
-           len_big++;
-           tone(10,5000,20);
-        }
-        else if(block_counter < block_threshold){
-          len_small++;
-          int a = 0;
-          if(a==0){digitalWrite(4,HIGH);a = 1;}
-          if(a==1){digitalWrite(4,LOW);a=0;}
-        }
-      }
-    }
-  }
-  block_counter = 0;
-
-  if((s2==lc)&&(s7==lc)){     //intersection blink
-     digitalWrite(LED_BUILTIN,HIGH);
-  }
-  else{
-     digitalWrite(LED_BUILTIN,LOW);
-  } 
 
   if (left==0 && right ==0){ //for braking
     if (brake_count>15000){
@@ -145,29 +99,12 @@ void loop() {
       //right = 1000;
      
     }
-
-  }
-
+  }/*
   else if((s1==lc)&&(s2==lc)&&(s3==lc)&&(s4==lc)&&(s5==lc)&&(s6==lc)&&(s7==lc)&&(s8==lc)){
-    if (brake_count>brake_thres){  //end of maze
-       stop_end();
-       for(int j=0;j<len_big;j++){
-        digitalWrite(13,HIGH);
-        delay(1000);
-        digitalWrite(13,LOW);
-        delay(1000);
-       }
-       delay(2000);
-       for(int j=0;j<len_small;j++){
-        digitalWrite(4,HIGH);
-        delay(1000);
-        digitalWrite(4,LOW);
-        delay(1000);
-       }
-       brake();
-       delay(10000);
-  }
-  }
+    if (brake_count>brake_thres){ 
+      stop_end();
+     }            
+  }*/
 
   pid();
   left=left+1;
@@ -180,22 +117,18 @@ void loop() {
   }
 }
 
-void afterstop(){
-
-}
 
 //////////////////////sensor get value//////////////////////
 
 void readsensors(){
-  s1 = digitalRead(A0);
-  s2 = digitalRead(A1);
-  s3 = digitalRead(A2);
-  s4 = digitalRead(A3);
-  s5 = digitalRead(A4);
-  s6 = digitalRead(A5);
-  s7 = digitalRead(2);
-  s8 = digitalRead(7);
-  b = digitalRead(12);
+  s1 = digitalRead(2);
+  s2 = digitalRead(4);
+  s3 = digitalRead(14);
+  s4 = digitalRead(6);
+  s5 = digitalRead(7);
+  s6 = digitalRead(8);
+  s7 = digitalRead(9);
+  s8 = digitalRead(15);
 }
 
 ///////////////////////error definition/////////////////////
@@ -286,61 +219,53 @@ void pid(){
   analogWrite(lm2,0);
   analogWrite(rm1,rms);
   analogWrite(rm2,0);
-
+ 
   prev_error = error;
 
 }
 
 /////////////////////////intersection handling////////////////////
 
+void dead_end(){
+  brake();
+  delay(10); 
+  while(s4!=lc && s5!=lc){ //take right turn at deadend
+    sharp_right_turn();
+    readsensors();
+  }
+  brake();
+  //delay(20)
+}
+
 void stop_end(){
   brake();
-  delay(500);
+  delay(10);
+  delay(10000);
 }
 
 ////////////////////////////turn functions////////////////////////
 
 void straight(){
-  analogWrite(lm1,110);
+  analogWrite(lm1,90);
   analogWrite(lm2,0);
-  analogWrite(rm1,110);
+  analogWrite(rm1,90);
   analogWrite(rm2,0);
 }
 
 void sharp_left_turn(){ 
-  analogWrite(lm1,110);
-  analogWrite(lm2,0);
-  analogWrite(rm1,0);
-  analogWrite(rm2,110);  
+  analogWrite(lm1,0);
+  analogWrite(lm2,90);
+  analogWrite(rm1,90);
+  analogWrite(rm2,0);  
 }
 
 void sharp_right_turn(){
-  analogWrite(lm1,0);//110->110->140
-  analogWrite(lm2,110);
-  analogWrite(rm1,110);
-  analogWrite(rm2,0);  
-}
-
-void sharp_accute_left_turn(){
-  analogWrite(lm1,110);
+  analogWrite(lm1,90);//90->90->140
   analogWrite(lm2,0);
   analogWrite(rm1,0);
-  analogWrite(rm2,110);  
+  analogWrite(rm2,90);  
 }
 
-void sharp_accute_right_turn(){
-  analogWrite(lm1,0);
-  analogWrite(lm2,110);
-  analogWrite(rm1,110);
-  analogWrite(rm2,0);  
-}
-
-void about_turn(){
-  analogWrite(lm1,0);
-  analogWrite(lm2,110);
-  analogWrite(rm1,110);
-  analogWrite(rm2,0);  
-}
 
 void brake(){
   analogWrite(lm1,255);
